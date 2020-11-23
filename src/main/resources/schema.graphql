@@ -1,11 +1,40 @@
-type Book{
+type Api{
     id:String
     name : String
-    page :Int
+    version:String
+    businessInformation:BusinessInformation
+    apiEndPointInformation:APIEndpointURLsDTO
 }
 
 
+type BusinessInformation{
+    businessOwner:String
+    businessOwnerEmail:String
+    technicalOwner:String
+    technicalOwnerEmail:String
+}
 
+type APIEndpointURLsDTO{
+    environmentName:String
+    environmentType:String
+    urLs:URL
+
+}
+type URL{
+    http:String
+    https:String
+    ws:String
+    wss:String
+}
+type Pagination{
+    offset:Int
+    limit:Int
+    total:Int
+    next:String
+    previous:String
+}
 type Query{
-    getBooks:[Book]
+    getApis:[Api]
+    getApisCount:Int
+    getPagination:[Pagination]
 }
